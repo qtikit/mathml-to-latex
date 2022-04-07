@@ -1079,4 +1079,14 @@ describe('#convert', () => {
       });
     });
   });
+
+  describe('given math string with mspace', () => {
+    describe('with linebreak=newline', () => {
+      const mathml = mathmlStrings.mspaceWithNewline;
+
+      const result = MathMLToLaTeX.convert(mathml);
+
+      expect(result).toMatch(`15 - 3 = 12 \\\\ 12 - 3 = 9`);
+    });
+  });
 });

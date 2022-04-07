@@ -1758,3 +1758,19 @@ export const mmultiscriptWithTwoChildren = `<math xmlns="http://www.w3.org/1998/
   </mrow>
 </mmultiscripts>
 </math>`;
+
+export const mspaceWithNewline = `<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+  <mn>15</mn>
+  <mo>&#x2212;</mo>
+  <mn>3</mn>
+  <mo>=</mo>
+  <mn>12</mn>
+  <mspace linebreak="newline" />
+  <mn>12</mn>
+  <mo>&#x2212;</mo>
+  <mn>3</mn>
+  <mo>=</mo>
+  <mn>9</mn>
+</mrow>
+</math>`;
