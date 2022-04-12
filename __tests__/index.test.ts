@@ -100,6 +100,26 @@ describe('#convert', () => {
 
         expect(result).toMatch('a \\Rightarrow b');
       });
+
+      it('converts mo passing brace as string', () => {
+        const mathml = `<math>
+              <mrow>
+                <mo>{</mo>
+                <mn>0</mn>
+                <mo>}</mo>
+                <mo>[</mo>
+                <mn>0</mn>
+                <mo>]</mo>
+                <mo>(</mo>
+                <mn>0</mn>
+                <mo>)</mo>
+              </mrow>
+            </math>`;
+
+        const result = MathMLToLaTeX.convert(mathml);
+
+        expect(result).toMatch('\\left\\{ 0 \\right\\} \\left[\\right. 0 \\left]\\right. \\left(\\right. 0 \\left.\\right)');
+      });
     });
   });
 
