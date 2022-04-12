@@ -106,19 +106,38 @@ describe('#convert', () => {
               <mrow>
                 <mo>{</mo>
                 <mn>0</mn>
+                <mo>&#xB7;</mo>
+                <mn>0</mn>
                 <mo>}</mo>
                 <mo>[</mo>
+                <mn>0</mn>
+                <mo>&#xB7;</mo>
                 <mn>0</mn>
                 <mo>]</mo>
                 <mo>(</mo>
                 <mn>0</mn>
+                <mo>&#xB7;</mo>
+                <mn>0</mn>
                 <mo>)</mo>
+                <mrow>
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <mn>5</mn>
+                    <mo>&#xB7;</mo>
+                    <mn>8</mn>
+                    <mo>)</mo>
+                  </mrow>
+                  <mrow>
+                    <mn>6</mn>
+                  </mrow>
+                </msup>
               </mrow>
             </math>`;
 
         const result = MathMLToLaTeX.convert(mathml);
 
-        expect(result).toMatch('\\left\\{ 0 \\right\\} \\left[\\right. 0 \\left]\\right. \\left(\\right. 0 \\left.\\right)');
+        expect(result).toMatch('\\left\\{ 0 \\cdot 0 \\right\\} \\left[\\right. 0 \\cdot 0 \\left]\\right. \\left(\\right. 0 \\cdot 0 \\left.\\right) \\left(\\right. 5 \\cdot 8 \\left.\\right)^{6}');
       });
     });
   });
@@ -923,7 +942,7 @@ describe('#convert', () => {
 
       const result = MathMLToLaTeX.convert(mathml);
 
-      expect(result).toBe('\\text{\\{} 0.50 + 5');
+      expect(result).toBe('\\text{\\$} 0.50 + 5');
     });
   });
 
