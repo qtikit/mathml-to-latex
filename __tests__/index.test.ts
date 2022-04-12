@@ -931,14 +931,14 @@ describe('#convert', () => {
     });
 
     describe('mtext with special characters"', () => {
-      const mathml =`<math>
-        <mrow>
-          <mtext>{</mtext>
-          <mn>0.50</mn>
-          <mo>+</mo>
-          <mn>5</mn>
-        </mrow>
-      </math>`;
+      const mathml =`<math xmlns="http://www.w3.org/1998/Math/MathML">
+              <mrow>
+                <mtext>$</mtext>
+                <mn>0.50</mn>
+                <mo>+</mo>
+                <mn>5</mn>
+              </mrow>
+            </math>`;
 
       const result = MathMLToLaTeX.convert(mathml);
 
