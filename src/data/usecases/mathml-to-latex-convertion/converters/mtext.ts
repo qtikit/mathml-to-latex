@@ -1,4 +1,5 @@
 import { ToLaTeXConverter } from '../../../../domain/usecases/to-latex-converter';
+import { normalizeCategoryCode } from '../../../helpers/normalize-category-code';
 import { MathMLElement } from '../../../protocols/mathml-element';
 
 export class MText implements ToLaTeXConverter {
@@ -11,7 +12,7 @@ export class MText implements ToLaTeXConverter {
   convert(): string {
     const { attributes, value } = this._mathmlElement;
 
-    return new TextCommand(attributes.mathvariant).apply(value);
+    return new TextCommand(attributes.mathvariant).apply(normalizeCategoryCode(value));
   }
 }
 

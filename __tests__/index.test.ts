@@ -910,6 +910,21 @@ describe('#convert', () => {
 
       expect(result).toBe('\\text{Creepy}');
     });
+
+    describe('mtext with special characters"', () => {
+      const mathml =`<math>
+        <mrow>
+          <mtext>{</mtext>
+          <mn>0.50</mn>
+          <mo>+</mo>
+          <mn>5</mn>
+        </mrow>
+      </math>`;
+
+      const result = MathMLToLaTeX.convert(mathml);
+
+      expect(result).toBe('\\text{\\{} 0.50 + 5');
+    });
   });
 
   describe('given math string with mover tag', () => {
